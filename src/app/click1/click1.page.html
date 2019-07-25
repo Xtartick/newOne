@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar style="text-align: center">
+      <ion-icon name="arrow-back" style="position: absolute; left: 0;" (click) = "back()"></ion-icon>
+    <ion-label >click</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-fab vertical="bottom" horizontal="end"   slot="fixed" (press) = "itvAdd()" (pressup)="onPressEvent()" >
+    <ion-fab-button (ionblur)="onPressEvent()" >
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <input #i1 type="text" value="hi">
+
+  <div style="position: absolute;bottom: 0;width: 100vw;">
+      <ion-input style="text-align: center;font-size: 40px" [(ngModel)]='input1' name='input1' ></ion-input>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="start"  slot="fixed" (press) = "itvMinus()" (pressup)="onPressEvent()">
+    <ion-fab-button>
+      <ion-icon name="remove"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

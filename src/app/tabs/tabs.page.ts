@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { NavigationExtras } from '@angular/router';
+import { exists } from 'fs';
 
 @Component({
   selector: 'app-tabs',
@@ -7,6 +10,17 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  navigationExtras: NavigationExtras = {
+    state: {
+        bool: true
+    }
+};
 
+  constructor(private nav : NavController) {}
+  
+  goBack(){
+    this.nav.navigateBack('').then(()=>{
+      
+    })
+  }
 }

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar style="text-align: center">
+      <ion-icon name="arrow-back" style="position: absolute; left: 0;" (click) = "back()"></ion-icon>
+    <ion-label >barcode</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-input style="background-color :aquamarine" type="text" [(ngModel)]="encodeText" ngdefaultcontrol></ion-input>
+    <ion-button (click)="Encode()" style="width: 100vw">製 作 成 Barcode！</ion-button>
+  </div>
+  <div>
+    <ion-button (click)="Scan()" style="width: 100vw">掃 描 Barcode !</ion-button>
+    <br>
+    <span *ngIf="show1" style="font-size: 20px;color:brown"> barcode解析為下！ </span>
+    <span *ngIf="!show1" style="font-size: 20px;color:brown"> 尚未讀取到barcode！ </span>
+    <div *ngIf="show">
+      <br>
+      <a href="{{scannedData.text}}" style="font-size: 30px">{{scannedData.text}}</a>
+    </div>
+    <div *ngIf="!show">
+        <br>
+        <span style="font-size: 30px">{{scannedData.text}}</span>
+      </div>
+  </div>
+</ion-content>

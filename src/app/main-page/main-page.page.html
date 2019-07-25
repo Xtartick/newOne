@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>mainPage</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<div class="content1">
+
+  <div class="div11">
+    <img src="../../assets/icon/favicon.png" style="height: 150px ; width:150px;">
+  </div>
+
+  <div class="div1">
+    <form>
+      <ion-item>
+        <ion-icon name="phone-portrait"></ion-icon>
+        <ion-input [(ngModel)]="phone" #input1 name="phone" placeholder="請輸入手機號碼 . . ."></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon type="phone" name="lock"></ion-icon>
+        <ion-input [(ngModel)]="password" name="password" type="password" placeholder="請輸入密碼 . . ."></ion-input>
+      </ion-item>
+
+    </form>
+  </div>
+
+
+  <div style="flex-grow: 1;display: inline-flex;margin-top: 50px;">
+    <span style="flex-grow: 1;display: inline-flex;"></span>
+    <ion-button style="flex-grow: 1;display: inline-flex;" (click)="login(input1)">登入</ion-button>
+    <span style="flex-grow: 1;display: inline-flex;"></span>
+    <ion-button style="flex-grow: 1;display: inline-flex;" (click)="register()">註冊</ion-button>
+    <span style="flex-grow: 1;display: inline-flex;"></span>
+  </div>
+
+  <div style="text-align: center;font-size:25px; color: red;">
+    {{err}}
+  </div>
+
+  <ion-button (click)="goCamera()">相機(Camera)</ion-button>
+  <ion-button (click)="goBarcode()">二維碼(BarcodeScanner)</ion-button>
+  <ion-button (click)="getNotifications()">訊息推播(Notifications)</ion-button>
+  <ion-button (click)="goClick()">點擊(click)</ion-button>
+
+</div>

@@ -1,0 +1,11 @@
+<ion-header>
+    <ion-toolbar style="text-align: center">
+        <ion-icon name="arrow-back" style="position: absolute; left: 0;" (click) = "back()"></ion-icon>
+      <ion-label >camera</ion-label>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+    <ion-button (click)="check()" style="width: 100vw;">拍照！</ion-button>
+    <p style="text-align: center;border: 5px;margin: 20px"><img src="{{ myPhoto }}"></p>
+</ion-content>

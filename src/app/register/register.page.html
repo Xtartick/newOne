@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar style="text-align: center">
+      <ion-icon name="arrow-back" style="position: absolute; left: 0;" (click) = "back()"></ion-icon>
+    <ion-label >Register</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <form [formGroup]="profileForm">
+    <ion-list>
+
+    <ion-item>
+      <ion-icon name="phone-portrait"></ion-icon>
+      <ion-input placeholder="  請輸入手機號碼 . . ." formControlName="phone" (ionFocus)="checkErrorDetail()"
+        (ionChange)="checkErrorDetail()"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="lock"></ion-icon>
+      <ion-input type="password" placeholder="  請輸入密碼 . . ." formControlName="password" (ionFocus)="checkErrorDetail()"
+        (ionChange)="checkErrorDetail()"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="lock"></ion-icon>
+      <ion-input type="password" placeholder="  再次輸入密碼 . . ." formControlName="password2" (ionFocus)="checkErrorDetail()"
+        (ionChange)="checkErrorDetail()"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="person"></ion-icon>
+      <ion-input placeholder="  請輸入用戶名字 . . ." formControlName="username" (ionFocus)="checkErrorDetail()"
+        (ionChange)="checkErrorDetail()"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-icon name="mail"></ion-icon>
+      <ion-input placeholder="  請輸入信箱 . . . " formControlName="mail" (ionFocus)="checkErrorDetail()"
+        (ionChange)="checkErrorDetail()"></ion-input>
+    </ion-item>
+
+    <div style="height: 1.25rem; text-align: center; color: red;" [hidden]="errDescribe===''">
+      {{errDescribe}}
+    </div>
+
+
+  </ion-list>
+</form>
+
+
+<div class="loginButtonContent">
+  <ion-button size="large" expand="block" (click)="goTab()" [disabled]="!profileForm.valid">送出</ion-button>
+</div>
+
+
+
+</ion-content>

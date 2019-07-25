@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab Three
+    <ion-title class="title1">
+      123456789
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <div style="font-size : 50px;text-align : center;">
+    <ion-label>數字<br></ion-label>
+    <span *ngIf="!(num === ans)">??</span>
+    <span [(ngModel)]="num" ngDefaultControl *ngIf="(num === ans)">{{num}}</span>
+  </div>
+  <p style="font-size : 50px;text-align : center;">
+    <ion-input type="number" [(ngModel)]="put" placeholder="請輸入數字"></ion-input>
+  </p>
+
+  <p >
+    <ion-button (click)="result_btn()" style="font-size : 50px;text-align : center;">輸出</ion-button>
+  </p>
+
+  <p style="font-size : 20px;text-align : center;">
+    <ion-label>結果：</ion-label>
+    {{result}}
+  </p>
+
+
+
+</ion-content>

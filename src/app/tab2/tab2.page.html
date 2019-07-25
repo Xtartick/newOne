@@ -1,9 +1,34 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab Two
+    <ion-title class="title1">
+      會員點餐系統
     </ion-title>
   </ion-toolbar>
+
+  <ion-item>
+    <ion-label class="text1">店 家 尋 找 </ion-label>
+    <ion-icon name="search" slot="start"></ion-icon>
+    <ion-select style="font-size: 16px"  [(ngModel)]="select1" placeholder="請選擇店家 . . ." (ionChange)="searchIt()"
+      interface="popover">
+      <ion-select-option *ngFor="let se of stores" [value]="se.id"  >
+          <span class="flag-icon flag-icon-gr"></span>
+        {{se.name}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
 </ion-header>
 
-<ion-content></ion-content>
+
+<ion-content >
+  <div class="div11">
+    <div *ngFor="let user of users" value="user.id" class="div1" (click)="test(user.id)" style="background-color: rgb(255, 255, 255)">
+      <ion-label class="user1">[ {{user.name}} ] </ion-label>
+      <ion-label>{{  user.time }}<br></ion-label>
+      <ion-label>&nbsp;</ion-label>
+      <ion-label class="right1">{{user.store}}</ion-label>
+      <div class="div2">
+        <ion-label class="comment1">{{user.comment}}</ion-label>
+      </div>
+    </div>    
+  </div>  
+</ion-content>

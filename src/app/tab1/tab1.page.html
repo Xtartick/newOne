@@ -1,22 +1,54 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab One
+    <ion-title class="title1">
+      會員點餐系統
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-card class="welcome-card">
-      <img src="/assets/shapes.svg" alt="" />
-      <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
-      </ion-card-content>
-    </ion-card>
+  <ion-list>
+
+    <ion-item class="item1">
+      <ion-label  class="text1">飲料 / 食物</ion-label>
+
+      <ion-select style="font-size: 16px" placeholder="請選擇 . . ." [(ngModel)]="select1" (ionChange)="onSelect1()" interface="popover">
+        <ion-select-option value = "drink" >飲料</ion-select-option>
+        <ion-select-option value = "food"  >食物</ion-select-option>
+      </ion-select>
+
+    </ion-item>
+
+    <ion-item class="item1" *ngIf="(select1 === 'food')">
+      <ion-label class="text1">附近店家</ion-label>
+
+      <ion-select style="font-size: 16px" [(ngModel)]="select2" placeholder="請選擇店家 . . ." (ionChange)="getDealerName($event)" interface="popover">
+        <ion-select-option *ngFor="let se of stores" [value]="se.id" >
+          {{se.name}}
+        </ion-select-option>
+      </ion-select>
+
+    </ion-item>
+
+    <ion-item class="item1" *ngIf="(select1 === 'drink')">
+      <ion-label class="text1">附近店家</ion-label>
+
+      <ion-select style="font-size: 16px" [(ngModel)]="select3" placeholder="請選擇店家 . . ." (ionChange)="getDealerName($event)" interface="popover">
+        <ion-select-option *ngFor="let se of stores2" [value]="se.id" >
+          {{se.name}}
+        </ion-select-option>
+      </ion-select>
+
+    </ion-item>
+
+  </ion-list>
+</ion-content>
+
+<ion-button style="font-size: 50px" [(disabled)] = "!_disable" [routerLink]="['/store']" (click) = "goStore()">
+  前往店家
+</ion-button>
+
+<!-- <ion-content>
     <ion-list lines="none">
       <ion-list-header>
         <ion-label>Resources</ion-label>
@@ -38,4 +70,4 @@
         <ion-label>Theme Your App</ion-label>
       </ion-item>
     </ion-list>
-</ion-content>
+</ion-content> -->
